@@ -1,0 +1,104 @@
+@media (max-width: 1000px)
+    header
+        padding: 20px 50px
+    #about
+        padding: 150px 50px
+        flex-direction: column
+        padding-bottom: 0
+        .content
+            h2
+                font-size: 4em
+                text-align: center
+            .btn
+                max-width: 160px
+                padding: 10px 20px
+        .my_pic
+            position: absolute
+            height: 50vh
+            right: 5%
+    @mixin that_one()
+        padding: 50px
+
+    #skills
+        .content
+            .skill
+                ul
+                    width: 100%
+    #contacts
+        .content
+            grid-template-columns: repeat(2, 1fr)
+            grid-template-rows: repeat(2, 1fr)
+
+@media (max-width: 900px)
+    #skills
+        .skillsText
+            h2
+                font-size: 2em
+        .content
+            grid-template-columns: 1fr
+            grid-template-rows: repeat(2, 1fr)
+
+@media (max-width: 700px)
+    #about
+        .content h2
+            font-size: 3em
+        &:before
+            width: 80vw
+            height: 40vw
+            border-top-left-radius: 80vw
+            border-top-right-radius: 80vw
+        .my_pic
+            height: 40vh
+    #projects,
+    #contacts
+        .content
+            grid-template-columns: repeat(1, 1fr)
+    #menuToggle
+        position: relative
+        width: 30px
+        height: 20px
+        display: flex
+        justify-content: center
+        align-items: center
+        cursor: pointer
+        &:before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 2px
+            background: #fff
+            transform: translateY(-10px)
+            transition: 0.5s
+            box-shadow: 0 10px #fff
+        &:after
+            content: ''
+            position: absolute
+            width: 100%
+            height: 2px
+            background: #fff
+            transform: translateY(10px)
+            transition: 0.5s
+    header
+        ul
+            display: none
+        &.active
+            #menuToggle
+                &:before
+                    transform: translateY(0) rotate(45deg)
+                    box-shadow: 0 0 #fff
+                &:after
+                    transform: translateY(0) rotate(315deg)
+            ul
+                display: flex
+                position: fixed
+                left: 0
+                top: 84px
+                width: 100%
+                height: calc(100vh - 84px)
+                background: rgba(50, 50, 50, .95)
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                gap: 30px
+                li a
+                    font-size: 2em

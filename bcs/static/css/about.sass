@@ -1,0 +1,40 @@
+#about
+    position: relative
+    width: 100%
+    min-height: 100vh
+    background: $bg_color_1
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 100px
+    .content
+        position: relative
+        display: flex
+        flex-direction: column
+        gap: 10px
+        max-width: 650px
+        z-index: 10
+        h2
+            position: relative
+            font-size: 5em
+            color: $accent_color_1
+        p
+            position: relative
+            color: $text_color
+            font-size: 1.2em
+            line-height: 1.6em
+    .my_pic
+        position: absolute
+        bottom: 0
+        right: 5vw
+        max-height: 90vh
+    &:before
+        content: ''
+        position: absolute
+        bottom: 0
+        right: 0
+        width: 50vw
+        height: 25vw
+        background: $accent_color_1
+        border-top-left-radius: 25vw
+        border-top-right-radius: 25vw

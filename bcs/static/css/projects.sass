@@ -1,0 +1,47 @@
+#projects
+    @include that_one
+    .projectsText
+        position: relative
+        width: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        h2
+            font-size: 3em
+            color: $text_color
+    .content
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 20px
+        margin: 40px 0
+        .project
+            position: relative
+            background: $bg_color_2_dop
+            padding: 30px 20px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            border: 2px solid $bg_color_2_dop
+            h3
+                color: $accent_color_1
+                font-weight: 500
+                font-size: 1.6em
+            .project__desc
+                min-height: 100px
+                padding-bottom: 30px
+                margin: 10px 0
+                color: $text_color
+                font-size: 1.2em
+            .project__github
+                position: absolute
+                bottom: 10px
+                padding: 5px 10px
+                text-decoration: none
+                font-size: 1.2em
+                color: $accent_color_1
+                transition: .1s
+                &:hover
+                    border: 2px solid $accent_color_1
+                    font-weight: 700

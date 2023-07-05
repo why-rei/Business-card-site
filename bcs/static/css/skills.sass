@@ -1,0 +1,48 @@
+#skills
+    @include that_one
+    .skillsText
+        position: relative
+        width: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        h2
+            font-size: 3em
+            color: $text_color
+    .content
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 20px
+        margin: 40px 0
+        .skill
+            max-height: 400px
+            background: $bg_color_2_dop
+            padding: 10px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            border: 2px solid $bg_color_2_dop
+            &:hover
+                border: 2px solid $accent_color_1
+            h3
+                color: $accent_color_1
+                font-size: 1.6em
+                font-weight: 500
+                margin-bottom: 10px
+            ul
+                position: relative
+                background: black
+                padding: 10px 40px
+                min-height: 200px
+                width: 70%
+                overflow: auto
+                font-size: 1.4em
+                font-weight: 200
+                color: white
+                list-style: none
+                li
+                    &:before
+                        content: counter(list-item)"\a0\a0"
+                        color: lime

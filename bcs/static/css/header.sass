@@ -1,0 +1,37 @@
+header
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    padding: 20px 100px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    z-index: 100
+    -webkit-backdrop-filter: blur(20px)
+    .logo
+        position: relative
+        color: $text_color
+        text-decoration: none
+        font-weight: 700
+        font-size: 2em
+    ul
+        position: relative
+        display: flex
+        gap: 40px
+        li
+            list-style: none
+            a
+                text-decoration: none
+                color: $text_color
+                font-weight: 500
+                font-size: 1.25em
+            &:hover a
+                color: $accent_color_1
+            #lang
+                text-transform: uppercase
+                padding: 3px
+                transition: .1s
+                &:hover
+                    color: $bg_color_1
+                    background: $accent_color_1

@@ -1,0 +1,116 @@
+<!doctype html>
+{% load static %}
+{% load sass_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'css/main.sass' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Resume</title>
+</head>
+<body>
+    <div id="scroll_progressbar"></div>
+    <div class="wrapper">
+        <header>
+            <a href="/" target="_parent" class="logo">oh-no.pw</a>
+            <div id="menuToggle"></div>
+            <ul class="nav">
+                <li><a href="#about">{{ template.about }}</a></li>
+                <li><a href="#skills">{{ template.skills }}</a></li>
+                <li><a href="#projects">{{ template.projects }}</a></li>
+                <li><a href="#contacts">{{ template.contacts }}</a></li>
+                <li><a id="lang" href="#">{{ template.lang }}</a></li>
+            </ul>
+        </header>
+        <section id="about">
+            <div class="content">
+                <h2>{{ user.name }}</h2>
+                <p>{{ user.description }}</p>
+                <a href="#contacts" class="btn">{{ template.btn_text }}</a>
+            </div>
+                <div class="my_picture"><img src="{% static 'img/my_pic.png' %}" alt="my picture" class="my_pic"></div>
+        </section>
+        <section id="skills">
+            <div class="skillsText">
+                <h2>{{ template.skills_text }}</h2>
+            </div>
+            <div class="content">
+                <div class="skill">
+                    <h3>{{ template.soft_skills }}</h3>
+                    <ul>
+                        {% for soft in user.soft_skills.all %}
+                            <li>{{ soft.skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="skill">
+                    <h3>{{ template.hard_skills }}</h3>
+                    <ul>
+                        {% for hard in user.hard_skills.all %}
+                            <li>{{ hard.skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="button">
+                <a href="#contacts" class="btn">{{ template.btn_text }}</a>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="projectsText">
+                <h2>Мои проекты</h2>
+            </div>
+            <div class="content">
+                {% for project in user.projects.all %}
+                <div class="project">
+                    <h3>{{ project.name }}</h3>
+                    <p class="project__desc">{{ project.description }}</p>
+                    <a href="{{ project.github }}" class="project__github" target="_blank">GitHub</a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="button">
+                <a href="#contacts" class="btn">{{ template.btn_text }}</a>
+            </div>
+        </section>
+        <section id="contacts">
+             <div class="contactsText">
+                <h2>{{ template.contacts_text }}</h2>
+            </div>
+            <div class="content">
+                <div class="contact" onclick="copyText('{{ user.contacts.gmail }}')">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <a>{{ user.contacts.gmail }}</a>
+                </div>
+                <div class="contact" onclick="copyText('{{ user.contacts.tel }}')">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <a>{{ user.contacts.tel }}</a>
+                </div>
+                <div class="contact">
+                    <ion-icon name="logo-github"></ion-icon>
+                    <a href="{{ user.contacts.github_href }}" target="_blank">GitHub</a>
+                </div>
+                <div class="contact">
+                    <ion-icon name="share-social-outline"></ion-icon>
+                    <a href="{{ user.contacts.social_href }}" target="_blank">{{ user.contacts.social }}</a>
+                </div>
+            </div>
+            <div class="copyrights">
+                <p class="copyrightsText">
+                    Copyright © 2023 <a href="http://oh-no.pw" target="_parent">oh-no.pw</a>. All Rights Reversed.
+                </p>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'js/scroll.js' %}"></script>
+    <script src="{% static 'js/burger.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
